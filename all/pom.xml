@@ -45,10 +45,5 @@
             <artifactId>KeePassJava2-jaxb</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.linguafranca.pwdb</groupId>
-            <artifactId>KeePassJava2-simple</artifactId>
-            <version>${project.version}</version>
-        </dependency>
     </dependencies>
 </project>

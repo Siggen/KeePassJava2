@@ -4,7 +4,6 @@ import org.linguafranca.pwdb.Database;
 import org.linguafranca.pwdb.Visitor;
 import org.linguafranca.pwdb.kdbx.dom.DomDatabaseWrapper;
 import org.linguafranca.pwdb.kdbx.jaxb.JaxbDatabase;
-import org.linguafranca.pwdb.kdbx.simple.SimpleDatabase;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -22,13 +21,6 @@ public class OpenDbExample {
 
     private interface DbLoader {
         Database load(KdbxCreds creds, InputStream inputStream) throws Exception;
-    }
-
-    private static class SimpleDbLoader implements DbLoader {
-        @Override
-        public Database load(KdbxCreds creds, InputStream inputStream) throws Exception {
-            return SimpleDatabase.load(creds, inputStream);
-        }
     }
 
     private static class DomDbLoader implements  DbLoader {
@@ -63,7 +55,6 @@ public class OpenDbExample {
 
     public static void main(String[] args) throws Exception {
         printStream.println("Warming up JVM");
-        testDb(new SimpleDbLoader(), "Simple", 5, 20);
         testDb(new JaxbDbLoader(), "Jaxb", 5, 20);
         testDb(new DomDbLoader(), "Dom", 5, 20);
 
@@ -71,7 +62,6 @@ public class OpenDbExample {
         System.gc();
         Thread.sleep(2000);
 
-        testDb(new SimpleDbLoader(), "Simple", 5, 20);
         testDb(new JaxbDbLoader(), "Jaxb", 5, 20);
         testDb(new DomDbLoader(), "Dom", 5, 20);
 
@@ -79,7 +69,6 @@ public class OpenDbExample {
         System.gc();
         Thread.sleep(2000);
 
-        testDb(new SimpleDbLoader(), "Simple", 10, 1);
         testDb(new JaxbDbLoader(), "Jaxb", 10, 1);
         testDb(new DomDbLoader(), "Dom", 10, 1);
 
@@ -87,7 +76,6 @@ public class OpenDbExample {
         System.gc();
         Thread.sleep(2000);
 
-        testDb(new SimpleDbLoader(), "Simple", 1, 50);
         testDb(new JaxbDbLoader(), "Jaxb", 1, 50);
         testDb(new DomDbLoader(), "Dom", 1, 50);
     }
