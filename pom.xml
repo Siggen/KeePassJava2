@@ -27,7 +27,7 @@
         <module>kdb</module>
         <module>kdbx</module>
         <module>dom</module>
-        <module>simple</module>
+<!--        <module>simple</module>-->
         <module>jaxb</module>
         <module>all</module>
         <module>example</module>
@@ -35,7 +35,7 @@
     <packaging>pom</packaging>
 
     <name>KeePassJava2</name>
-    <description>A Java 8 API for databases compatible with the renowned KeePass password safe for Windows</description>
+    <description>A Java 17 API for databases compatible with the renowned KeePass password safe for Windows</description>
     <url>https://github.com/jorabin/KeePassJava2</url>
 
     <licenses>
@@ -70,7 +70,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
 
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>

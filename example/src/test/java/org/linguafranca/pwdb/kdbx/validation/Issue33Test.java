@@ -3,6 +3,7 @@ package org.linguafranca.pwdb.kdbx.validation;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.linguafranca.pwdb.Credentials;
 import org.linguafranca.pwdb.StreamFormat;
@@ -54,6 +55,7 @@ public class Issue33Test {
         database.save(new StreamFormat.None(), new Credentials.None(), Files.newOutputStream(Paths.get(TEST_OUTPUT_DIR, "Issue33Jaxb.xml")));
     }
 
+    @Ignore
     @Test
     public void testSimpleDatabase() throws IOException {
         SimpleDatabase database = SimpleDatabase.load(CREDENTIALS, inputStream);

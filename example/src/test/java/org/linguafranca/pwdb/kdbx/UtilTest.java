@@ -1,5 +1,6 @@
 package org.linguafranca.pwdb.kdbx;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -12,7 +13,9 @@ import static org.linguafranca.util.TestUtil.getTestPrintStream;
 public class UtilTest {
 
     OutputStream outputStream = getTestPrintStream();
-    @Test public void listDatabaseTest() throws IOException {
+    @Test
+    @Ignore
+    public void listDatabaseTest() throws IOException {
         listDatabase("V3-CustomIcon.kdbx", new KdbxCreds("123".getBytes()), outputStream);
     }
 

@@ -16,7 +16,7 @@
 
 package org.linguafranca.pwdb.kdbx.jaxb.base;
 
-import javax.xml.bind.annotation.XmlTransient;
+import jakarta.xml.bind.annotation.XmlTransient;
 
 /**
  * Ancestor class for Entry and Group Jaxb Bindings, allowing insertion of

@@ -20,7 +20,7 @@ import org.junit.Test;
 import org.linguafranca.pwdb.kdbx.jaxb.binding.KeePassFile;
 import org.linguafranca.pwdb.kdbx.jaxb.binding.StringField;
 
-import javax.xml.bind.*;
+import jakarta.xml.bind.*;
 import java.io.PrintStream;
 
 import static org.linguafranca.util.TestUtil.getTestPrintStream;

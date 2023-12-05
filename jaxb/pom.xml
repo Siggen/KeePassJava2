@@ -34,22 +34,29 @@
             <artifactId>KeePassJava2-kdbx</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- this is the last version of JAXB that supports Java 8, I think -->
+        <!-- JAXB API only -->
         <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>3.0.1</version>
         </dependency>
+        <!-- JAXB RI, Jakarta XML Binding -->
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
-            <version>2.3.3</version>
+            <version>3.0.0</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.linguafranca.pwdb</groupId>
             <artifactId>test</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>txw2</artifactId>
+            <version>3.0.2</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -77,13 +84,13 @@
         <profile>
             <id>generateJaxbSources</id>
             <!-- Use the xjc compiler, as follows, in the JAXB directory -->
-            <!--  xjc -d src/generated/java -p org.linguafranca.pwdb.kdbx.jaxb.binding -b bindings.xml ../KDBX.4.xsd -->
+            <!--  xjc -d src/generated/java -p org.linguafranca.pwdb.kdbx.jaxb.binding -b bindings.xjb ../KDBX.4.xsd -->
             <build>
                 <plugins>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>jaxb2-maven-plugin</artifactId>
-                        <version>2.2</version>
+                        <version>3.1.0</version>
                         <executions>
                             <execution>
                                 <id>xjc</id>
@@ -97,7 +104,7 @@
                                 <source>../KDBX.4.xsd</source>
                             </sources>
                             <xjbSources>
-                                <source>bindings.xml</source>
+                                <source>bindings.xjb</source>
                             </xjbSources>
                             <packageName>org.linguafranca.pwdb.kdbx.jaxb.binding</packageName>
                             <outputDirectory>src/generated/java</outputDirectory>
